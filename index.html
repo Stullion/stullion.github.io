@@ -509,16 +509,80 @@
                     <h3>Quality Clinicians</h3>
                     <p class="description">
                         I ran operations for recruiting, credentialing, and deploying travel nurses to healthcare facilities in 24 states. Responsible individually or over teams in AR/AP, payroll, data capture, clean, and pricing for 3k daily average job posts. After a major market contraction, successfully pivoted to per diem nursing. Built 0-&gt;1 end-to-end operations for
-						<ul class="timeline">
-							<li>booking a nurse</li>
-							<li>geo-verified clock in</li>
-							<li>timesheet capture</li>
-							<li>AI-assisted compliance review</li>
-							<li>next-day pay</li>
-							<li>accounting</li>
-							</ul>
-						After major client bankrupcy, handled orderly sale of assets.
-                    </p>
+					</p>
+						<style>
+						.process-flow {
+						  max-width: 600px;
+						  margin: 16px 0;
+						}
+						
+						.process-step {
+						  display: flex;
+						  align-items: flex-start;
+						  position: relative;
+						  padding-bottom: 20px;
+						}
+						
+						.process-step::after {
+						  content: "";
+						  position: absolute;
+						  left: 6px;
+						  top: 18px;
+						  bottom: 0;
+						  width: 2px;
+						  background: #e5e7eb;
+						}
+						
+						.process-step:last-child::after {
+						  display: none;
+						}
+						
+						.process-step .dot {
+						  width: 14px;
+						  height: 14px;
+						  border-radius: 50%;
+						  background: #2563eb;
+						  margin-right: 14px;
+						  margin-top: 4px;
+						  flex-shrink: 0;
+						}
+						
+						.process-step .card {
+						  background: #f9fafb;
+						  padding: 10px 14px;
+						  border-radius: 8px;
+						  box-shadow: 0 1px 3px rgba(0,0,0,.08);
+						  font-size: 0.95em;
+						}
+						</style>
+						
+						<div class="process-flow">
+						  <div class="process-step">
+						    <span class="dot"></span>
+						    <div class="card">
+						      <strong>Collect time sheets</strong><br>
+						      <small>CSV exports from Teambridge</small>
+						    </div>
+						  </div>
+						
+						  <div class="process-step">
+						    <span class="dot"></span>
+						    <div class="card">
+						      <strong>Normalize data</strong><br>
+						      <small>Clean timestamps and shift IDs</small>
+						    </div>
+						  </div>
+						
+						  <div class="process-step">
+						    <span class="dot"></span>
+						    <div class="card">
+						      <strong>Analyze shifts</strong><br>
+						      <small>Detect gaps and overtime patterns</small>
+						    </div>
+						  </div>
+						</div>
+					<p>After major client bankrupcy, handled orderly sale of assets.
+				</p>
                     <div class="skills">
                         <span class="skill-tag">Automation</span>
                         <span class="skill-tag">Small Business Finance</span>
