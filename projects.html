@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Your Name</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #000000;
+            --accent: #2563eb;
+            --secondary: #1e40af;
+            --light: #f8f9fa;
+            --text: #e5e7eb;
+            --card-bg: #1a1a1a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background: #000000;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--primary);
+            padding: 2rem;
+            border-bottom: 2px solid var(--accent);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--accent);
+        }
+
+        .nav-link.active {
+            color: var(--accent);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem 3rem;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--light);
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-subtitle {
+            color: var(--text);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid #333;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            animation: fadeIn 0.6s ease-out both;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 40px rgba(37, 99, 235, 0.2);
+        }
+
+        .project-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #333;
+        }
+
+        .project-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--light);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-category {
+            color: var(--accent);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .project-body {
+            padding: 1.5rem;
+        }
+
+        .project-description {
+            color: var(--text);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.7rem 1.2rem;
+            background: var(--accent);
+            color: #000;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .project-link:hover {
+            background: var(--secondary);
+            transform: translateX(3px);
+        }
+
+        .project-link.secondary {
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+        }
+
+        .project-link.secondary:hover {
+            background: var(--accent);
+            color: #000;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: #000;
+            color: var(--light);
+            margin-top: 5rem;
+            border-top: 2px solid var(--accent);
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="nav-link">Home</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Timeline</a>
+                <a href="projects.html" class="nav-link active">Projects</a>
+                <!-- Add more navigation links here as you create more pages -->
+            </div>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>My Projects</h1>
+        <p class="hero-subtitle">
+            A showcase of tools, applications, and solutions I've built to solve real-world problems
+        </p>
+    </div>
+
+    <div class="container">
+        <div class="projects-grid">
+            <!-- PROJECT 1 - EXAMPLE -->
+            <div class="project-card" data-category="web">
+                <div class="project-header">
+                    <h2 class="project-title">Project Management Dashboard</h2>
+                    <span class="project-category">Web Application</span>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">
+                        A full-featured project management tool with real-time collaboration, 
+                        task tracking, and team analytics. Built to handle teams of 5-50 people 
+                        with intuitive drag-and-drop interfaces.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://example.com/demo" class="project-link" target="_blank">
+                            🚀 View Live Demo
+                        </a>
+                        <a href="https://github.com/yourusername/project" class="project-link secondary" target="_blank">
+                            📂 View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJECT 2 - EXAMPLE -->
+            <div class="project-card" data-category="tool">
+                <div class="project-header">
+                    <h2 class="project-title">API Testing Suite</h2>
+                    <span class="project-category">Developer Tool</span>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">
+                        Command-line tool for automated API testing with support for REST and GraphQL. 
+                        Features include parallel test execution, detailed reporting, and CI/CD integration.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://github.com/yourusername/api-tester" class="project-link" target="_blank">
+                            🛠️ Download Tool
+                        </a>
+                        <a href="https://docs.example.com" class="project-link secondary" target="_blank">
+                            📖 Documentation
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJECT 3 - EXAMPLE -->
+            <div class="project-card" data-category="mobile">
+                <div class="project-header">
+                    <h2 class="project-title">Fitness Tracker App</h2>
+                    <span class="project-category">Mobile Application</span>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">
+                        Cross-platform mobile app for tracking workouts, nutrition, and progress. 
+                        Includes social features, goal setting, and integration with popular fitness devices.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://apps.apple.com/app" class="project-link" target="_blank">
+                            📱 iOS App
+                        </a>
+                        <a href="https://play.google.com/store" class="project-link secondary" target="_blank">
+                            🤖 Android App
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJECT 4 - EXAMPLE -->
+            <div class="project-card" data-category="data">
+                <div class="project-header">
+                    <h2 class="project-title">Sales Analytics Platform</h2>
+                    <span class="project-category">Data & Analytics</span>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">
+                        Real-time sales analytics dashboard with predictive modeling and automated reporting. 
+                        Processes 100K+ transactions daily and provides actionable insights for sales teams.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://example.com/analytics" class="project-link" target="_blank">
+                            📊 View Dashboard
+                        </a>
+                        <a href="https://example.com/case-study" class="project-link secondary" target="_blank">
+                            📄 Case Study
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJECT 5 - EXAMPLE -->
+            <div class="project-card" data-category="web">
+                <div class="project-header">
+                    <h2 class="project-title">E-Commerce Platform</h2>
+                    <span class="project-category">Web Application</span>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">
+                        Full-stack e-commerce solution with payment processing, inventory management, 
+                        and customer analytics. Supports multiple vendors and handles 10K+ daily visitors.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://shop.example.com" class="project-link" target="_blank">
+                            🛒 Visit Store
+                        </a>
+                        <a href="https://github.com/yourusername/ecommerce" class="project-link secondary" target="_blank">
+                            📂 View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJECT 6 - EXAMPLE -->
+            <div class="project-card" data-category="tool">
+                <div class="project-header">
+                    <h2 class="project-title">Code Snippet Manager</h2>
+                    <span class="project-category">Developer Tool</span>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">
+                        Desktop application for organizing and searching code snippets with syntax highlighting, 
+                        tags, and cloud sync. Supports 50+ programming languages.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://github.com/yourusername/snippet-manager/releases" class="project-link" target="_blank">
+                            💾 Download App
+                        </a>
+                        <a href="https://github.com/yourusername/snippet-manager" class="project-link secondary" target="_blank">
+                            📂 View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Your Name. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scroll for any future anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
